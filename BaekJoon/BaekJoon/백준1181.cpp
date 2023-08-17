@@ -2,6 +2,8 @@
 #include <algorithm>
 using namespace std;
 
+string s[20000];
+
 int compare(string a, string b) {
     if (a.length() == b.length()) {
         return a < b;
@@ -9,8 +11,6 @@ int compare(string a, string b) {
 
     else return a.length() < b.length();
 }
-
-string s[20000];
 
 int main() {
     int n;
