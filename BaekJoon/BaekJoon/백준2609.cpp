@@ -18,7 +18,7 @@ int lcm(int a, int b) {
 	return a * b / gcd(a, b);
 }
 
-int main() {
+int main() {	
 	int a, b;
 	cin >> a >> b;
 	cout << gcd(a,b) << '\n';
