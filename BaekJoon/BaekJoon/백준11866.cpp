@@ -2,6 +2,7 @@
 #include <queue>
 
 using namespace std;
+
 int main()
 {
 	ios::sync_with_stdio(false);
@@ -25,7 +26,7 @@ int main()
 			cout << q.front() << ">";
 			break;
 		}
-		cout << q.front() << ", ";	//삭제 전 삭제하는 원소 출력
+		cout << q.front() << ", ";
 		q.pop();
 	}
 	return 0;
