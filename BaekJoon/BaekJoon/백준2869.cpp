@@ -11,13 +11,4 @@ int main() {
 
 	cout << (v - a) / (a - b) - 1;
 
-	//while (true)
-	//{
-	//	cnt++;
-	//	v -= a;
-	//	if (v <= 0) break;
-	//	v += b;
-	//}
-	//cout << cnt;
-	//return 0;
 }
