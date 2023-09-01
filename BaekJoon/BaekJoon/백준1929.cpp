@@ -19,7 +19,7 @@ void findPrimeNum(int m, int n)
 		}
 	}
 
-	for (int i = m; i < n + 1; i++) {
+	for (int i = m; i < n + 1; i++) {	
 		if (arr[i] == 0)
 			cout << i << '\n';
 	}
