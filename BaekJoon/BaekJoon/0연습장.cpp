@@ -1,38 +1,33 @@
-#include <string>
 #include <vector>
-#include <map>
-#include <queue>
-
 using namespace std;
-bool isLinked(string str1, string str2) {
-	int cnt = 0;
-	for (int i = 0; i < str1.size(); i++)
-	{
-		if (str1[i] == str2[i]) cnt++;
+
+int answer = 0;
+int targetNum;
+int visited[51]{ 0 };
+vector<int> v;
+
+void DFS(int n, char sign) {
+	if (sign == '+') {
+
 	}
-	return cnt == str1.size() - 1;
+	else {
+
+	}
+
+	if (n + 1 == v.size()) {
+		if (n == targetNum)
+			answer++;
+		return;
+	}
+
+	DFS(n + 1, '+');
+	DFS(n + 1, '-');
 }
 
-int solution(string begin, string target, vector<string> words) {
-	map <string, int> visited;
-	queue<string> q;
-	q.push(begin);
-	visited[begin];
-
-	while (!q.empty())
-	{
-		string now = q.front();
-		q.pop();
-
-		for (int i = 0; i < words.size(); i++)
-		{
-			string next = words[i];
-			if (visited.find(next) == visited.end() && isLinked(now, next)) {
-				q.push(next);
-				visited[next] = visited[now] + 1;
-			}
-		}
-	}
-	if (visited.find(target) == visited.end()) return 0;
-	return visited[target];
+int solution(vector<int> numbers, int target) {
+	targetNum = target;
+	v = numbers;
+	DFS(0, '+');
+	DFS(0, '-');
+	return answer;
 }

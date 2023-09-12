@@ -46,14 +46,14 @@ int main() {
 			board[y][x] = 1;
 		}
 
-		for (int i = 0; i < row; i++)
+		for (int i = 0; i < col; i++)
 		{
-			for (int j = 0; j < col; j++)
+			for (int j = 0; j < row; j++)
 			{
-				if (visited[j][i] == 0 && board[j][i] == 1)
+				if (visited[i][j] == 0 && board[i][j] == 1)
 				{
 					cnt++;
-					DFS(j, i);
+					DFS(i, j);
 				}
 			}
 		}
