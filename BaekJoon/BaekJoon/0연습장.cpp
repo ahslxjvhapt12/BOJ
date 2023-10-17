@@ -1,58 +1,46 @@
-//DFS 깊이 우선
-//BFS 너비 우선
 #include <iostream>
 #include <vector>
-#include <queue>
+#include <algorithm>
 
 using namespace std;
 
-vector<int> map[100];
-int visited[100];
-int visited2D[100][100];
+int binary_search(vector<int>& arr, int len, int target) {
+	int left = 0, right = len - 1;
 
-int dx[4] = { 0,1,0,-1 };
-int dy[4] = { 1,0,-1,0 };
+	while (left <= right) {
+		int mid = (left + right) / 2;
 
-vector<vector<int>> v;
-void DFS(int start) {
-	visited[start] = true;
-	for (int i = 0; i < map[start].size(); i++)
-	{
-		int y = map[start][i];
-		if (visited[y] == false)
-			DFS(y);
-	}
-}
+		if (target == arr[mid])	return 1;
 
-void BFS(int start) {
-	queue<int> q;
-	visited[start] = true;
-	q.push(start);
-
-	while (!q.empty())
-	{
-		int temp = q.front();
-		q.pop();
-		for (int i = 0; i < map[temp].size(); i++)
-		{
-			int y = map[temp][i];
-			if (visited[y] == false) {
-				visited[y] = true;
-				q.push(y);
-			}
+		if (target < arr[mid]) {
+			right = mid - 1;
+		}
+		else if (target > arr[mid]) {
+			left = mid + 1;
 		}
 	}
+	return 0;
 }
 
-// dx dy 활용
-void DFS(int y, int x) {
-	visited2D[y][x] = true;
-	for (int i = 0; i < 4; i++)
+int main() {
+	int n;
+	int input;
+	vector<int> v;
+	cin >> n;
+
+	for (int i = 0; i < n; i++)
 	{
-		int ny = y + dy[i];
-		int nx = x + dx[i];
-		if (visited2D[ny][nx] == false && map[ny][nx] == 1) {
-			DFS(ny, nx);
-		}
+		cin >> input;
+		v.push_back(input);
+	}
+
+	sort(v.begin(), v.end());
+
+	cin >> n;
+
+	for (int i = 0; i < n; i++)
+	{
+		cin >> input;
+		cout << binary_search(v, v.size(), input) << '\n';
 	}
 }
