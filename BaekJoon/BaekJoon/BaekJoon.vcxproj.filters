@@ -339,5 +339,8 @@
     <ClCompile Include="백준11727.cpp">
       <Filter>백준</Filter>
     </ClCompile>
+    <ClCompile Include="백준1931.cpp">
+      <Filter>백준</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

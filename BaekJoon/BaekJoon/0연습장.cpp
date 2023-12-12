@@ -1,16 +1,24 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-int Fibo(int n) {
-	if (n == 1 || n == 2) return 1;
-	return Fibo(n - 1) + Fibo(n - 2);
-}
-
 int main() {
-	int n;
-	cin >> n;
 
-	cout << Fibo(n);
-	return 0;
+	int i, j, k, answer = 1;
+	cin >> i >> j >> k;
+	if (i % 2 == 1)
+		answer *= i;
+	if (j % 2 == 1)
+		answer *= j;
+	if (k % 2 == 1)
+		answer *= k;
+
+	if (answer == 1) {
+		cout << i * j * k;
+	}
+	else {
+		cout << answer;
+	}
 }
