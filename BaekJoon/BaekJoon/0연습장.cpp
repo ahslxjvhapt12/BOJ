@@ -1,24 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 int main() {
+	vector<int> v = { 1,1,1,2,2 };
 
-	int i, j, k, answer = 1;
-	cin >> i >> j >> k;
-	if (i % 2 == 1)
-		answer *= i;
-	if (j % 2 == 1)
-		answer *= j;
-	if (k % 2 == 1)
-		answer *= k;
+	v.resize(101);
 
-	if (answer == 1) {
-		cout << i * j * k;
+	for (int i = 5; i < 100; i++)
+	{
+		v[i] = v[i - 1] + v[i - 5];
 	}
-	else {
-		cout << answer;
-	}
+
+	int n;
+	cin >> n;
+	cout << v[n - 1];
 }
