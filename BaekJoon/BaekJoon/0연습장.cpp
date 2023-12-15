@@ -1,19 +1,22 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
+int dp[1001] = { 0, 1, 3 };
+
+int DP(int n) {
+	if (n <= 0) return 0;
+	if (n == 1) return 1;
+	if (n == 2) return 3;
+
+	if (dp[n] != 0) return dp[n];
+
+	dp[n] = (DP(n - 1) + DP(n - 2) * 2) % 10007;
+	return dp[n];
+}
+
 int main() {
-	vector<int> v = { 1,1,1,2,2 };
-
-	v.resize(101);
-
-	for (int i = 5; i < 100; i++)
-	{
-		v[i] = v[i - 1] + v[i - 5];
-	}
-
 	int n;
 	cin >> n;
-	cout << v[n - 1];
+	cout << DP(n);
 }
