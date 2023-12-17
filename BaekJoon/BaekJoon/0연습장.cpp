@@ -2,21 +2,21 @@
 
 using namespace std;
 
-int dp[1001] = { 0, 1, 3 };
+int dp[12] = { 0, 1, 2 ,4 ,7 };
 
 int DP(int n) {
-	if (n <= 0) return 0;
-	if (n == 1) return 1;
-	if (n == 2) return 3;
-
 	if (dp[n] != 0) return dp[n];
-
-	dp[n] = (DP(n - 1) + DP(n - 2) * 2) % 10007;
+	dp[n] = DP(n - 1) + DP(n - 2) + DP(n - 3);
 	return dp[n];
 }
 
 int main() {
-	int n;
-	cin >> n;
-	cout << DP(n);
+	int repeat;
+	cin >> repeat;
+	for (int i = 0; i < repeat; i++)
+	{
+		int n;
+		cin >> n;
+		cout << DP(n) << '\n';
+	}
 }
